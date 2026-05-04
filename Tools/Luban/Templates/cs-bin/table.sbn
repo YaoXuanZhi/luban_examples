@@ -167,3 +167,29 @@ public partial class {{__name}}
 }
 
 {{namespace_with_grace_end __namespace_with_top_module}}
+{{~# ── enum-table 扩展方法（仅当 __enumTable__ tag 存在时生成）──────────────────────── ~}}
+{{~if has_tag __table "__enumTable__"~}}
+{{~  enum_full_name = get_tag __table "__enumTable__"
+     enum_parts = string.split enum_full_name '.'
+     enum_short_name = array.last enum_parts
+~}}
+{{namespace_with_grace_begin __namespace_with_top_module}}
+/// <summary>
+/// {{enum_short_name}} 枚举扩展方法（由 enum-table 模式自动生成）
+/// </summary>
+public static partial class {{enum_short_name}}Extensions
+{
+    /// <summary>
+    /// 获取 {{enum_short_name}} 枚举值对应的配置数据。
+    /// </summary>
+    public static {{declaring_type_name value_type}} GetConf(this {{enum_full_name}} self, {{__manager_name_with_top_module}} tables)
+        => tables.{{format_property_name __code_style __name}}.Get(self);
+
+    /// <summary>
+    /// 获取 {{enum_short_name}} 枚举值对应的配置数据，不存在时返回 <c>null</c>。
+    /// </summary>
+    public static {{declaring_type_name value_type}} GetConfOrDefault(this {{enum_full_name}} self, {{__manager_name_with_top_module}} tables)
+        => tables.{{format_property_name __code_style __name}}.GetOrDefault(self);
+}
+{{namespace_with_grace_end __namespace_with_top_module}}
+{{~end~}}

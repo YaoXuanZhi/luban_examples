@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<module name="card">
+    <!--
+        enum-table 用法演示：
+        声明一行 table，设置 mode="enum-table"，value 是枚举类型名。
+        Luban 会自动从 Excel 中读取：
+          - 无 ##type 的保留列（name/alias/value/comment） → 生成 RawEnum
+          - 有 ##type 的其余列                           → 生成 RawBean
+        最终产出：ECardQuality 枚举 + CardQualityConf Bean + TbCardQuality MAP 表
+    -->
+    <table name="TbCardQuality"
+           value="ECardQuality"
+           mode="enum-table"
+           input="card_quality.csv"
+           comment="卡牌品质枚举配置"/>
+</module>

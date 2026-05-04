@@ -1,0 +1,7 @@
+##var,name,alias,value,comment,display_name,icon_path,sort_order
+##type,,,,,string,string,int
+##comment,枚举项名,别名,枚举值,注释,显示名称,图标路径,排序
+,COMMON,,1,普通品质,普通,icon_common.png,1
+,RARE,,2,稀有品质,稀有,icon_rare.png,2
+,EPIC,,3,史诗品质,史诗,icon_epic.png,3
+,LEGENDARY,,4,传奇品质,传奇,icon_legendary.png,4

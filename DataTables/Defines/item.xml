@@ -147,6 +147,7 @@
 	</bean>
 	
 	<table name="TbItem" value="Item" input="通用道具表@item/道具系统表.xlsx" comment="道具表"/>
-	
+    <!-- <table name="TbCardQuality" value="ECardQuality" mode="enum-table" input="card_quality.csv" comment="卡牌品质枚举配置"/> -->
+    <table name="TbCardQuality" value="ECardQuality" mode="enum-table" input="test/enum_tables_datas/card_quality.xlsx" comment="卡牌品质枚举配置"/>
 
 </module>
